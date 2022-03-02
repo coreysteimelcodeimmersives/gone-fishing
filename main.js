@@ -17,6 +17,15 @@ function topOfTheHour(){
     userAction();
     addTime();
     console.log(`==========================================`);
+    return topOfTheHour();
+}
+
+function checkTime(){
+    if (timeOfDay === 12){
+        console.log(`The time is 12:00pm. Times up!`);
+        console.log(``);
+        console.log(`You caught ${totalFish} fish:`)
+    }
 }
 
 function checkTotalFishWeight(){
@@ -58,7 +67,8 @@ function addTime(){
 
 function userAction(){
     if (autoRelease === true){
-        return;
+        console.log(`This fish would put you over 10 lbs, so you release it.`);
+        return prompt(`Press [enter] to continue.`);
     } else {
         console.log(`Your action: [c]atch or [r]elease?`);
         userDecision = prompt(`> `).toLocaleLowerCase();
