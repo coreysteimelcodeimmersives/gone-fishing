@@ -3,53 +3,95 @@ const prompt = require('prompt-sync')({sigint:true});
 function startOfGame(){
     console.log(`You've gone fishing! Try to maximize the value of your caught fish.`);
     console.log(`You can fish for six hours (till 12:00pm) and can catch at most 10 lbs of fish.`);
+    console.log(``);
     console.log(`==========================================`);
 }
 
 function topOfTheHour(){
     console.log(`The time is ${timeOfDay}:00am. So far you've caught:`)
-    console.log(`${numberOfFish} fish, ${totalWeight} lbs, $${marketValue}`);
+    console.log(``);
+    console.log(`${totalFish} fish, ${totalWeight} lbs, $${totalValue}`);
+    console.log(``);
+    catchFish();
+    checkTotalFishWeight();
+    userAction();
+    addTime();
+    console.log(`==========================================`);
+}
+
+function checkTotalFishWeight(){
+    let potenttialTotalFishWeight = totalWeight + currentFishWeight;
+    if (potenttialTotalFishWeight > 10){
+        return autoRelease = true;
+    } else {
+        return autoRelease = false;
+    }
 }
 
 let timeOfDay = 6;
 
-let numberOfFish = 0;
+let totalFish = 0;
 
 let totalWeight = 0;
 
-let marketValue = 0;
+let totalValue = 0;
+
+let currentFishName = ``;
+
+let currentFishWeight = 0;
+
+let currentFishValue = 0;
+
+let userDecision = ``;
+
+let autoRelease = false;
 
 function catchFish(){
-    console.log(`You caught a '${fishName()}' weighing ${fishWeight} lbs and valued at $${fishValue()}`);
-    console.log(`Your action: [c]atch or [r]elease?`);
-    
+    console.log(`You caught a '${fishName()}' weighing ${fishWeight()} lbs and valued at $${fishValue()}`);
+    return;
+}
+
+function addTime(){
+    timeOfDay += 1;
+    return timeOfDay;
 }
 
 function userAction(){
-    let userDecision = prompt(`> `).toLocaleLowerCase();
-    if (userDecision === 'c'){
-        // do something
-    } else if (userDecision === 'r'){
-        // do something else
+    if (autoRelease === true){
+        return;
     } else {
-        console.log(`Invalid entry. Try again.`)
-        return userAction();
-    }
+        console.log(`Your action: [c]atch or [r]elease?`);
+        userDecision = prompt(`> `).toLocaleLowerCase();
+        if (userDecision === 'c'){
+            totalFish += 1;
+            totalWeight += currentFishWeight;
+            totalValue += currentFishValue;
+            return console.log(`You chose to keep the fish.`);
+        } else if (userDecision === 'r'){
+            return nsole.log(`You chose to release the fish.`);
+        } else {
+            console.log(`Invalid entry. Try again.`)
+            return userAction();
+        }   
+    }  
 }
 
 function fishName(){
     let fishName1 = fishAdj[Math.floor(Math.random()*fishAdj.length)];
     let fishName2 = fishColor[Math.floor(Math.random())*fishColor.length];
     let fishName3 = fishSpecies[Math.floor(Math.random())*fishSpecies.length];
-    return `${fishName1} ${fishName2} ${fishName3}`
+    currentFishName = `${fishName1} ${fishName2} ${fishName3}`;
+    return currentFishName;
 }
 
 function fishWeight(){
-    return Math.random().toFixed(2)*10;
+    currentFishWeight = Math.random().toFixed(2)*10;;
+    return currentFishWeight;
 }
 
 function fishValue(){
-    return Math.random().toFixed(2)*100;
+    currentFishValue = Math.random().toFixed(2)*100;
+    return currentFishValue;
 }
 
 let fishAdj = ['Large', 'Small', 'Great', 'Elusive', 'Peppered', 'Salty', 'Common', 'Electric', 'Spotted', 'Tiny', 'Striped', 'Majestic', 'Heavenly', 'Ghostly', 'Ancient', 'Ol', 'Dainty',  'Royal'];
