@@ -1,5 +1,26 @@
 {
-    "dependencies": {
-        "prompt-sync": "^4.2.0"
-    }
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "prompt-sync": "^4.2.0",
+    "type": "module"
+  },
+  "name": "gone-fishing",
+  "description": "<img src=\"https://fishingbooker.com/blog/media/hero-lures.jpg\" width=\"500px\" />",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coreysteimelcodeimmersives/gone-fishing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coreysteimelcodeimmersives/gone-fishing/issues"
+  },
+  "homepage": "https://github.com/coreysteimelcodeimmersives/gone-fishing#readme"
 }
