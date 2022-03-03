@@ -50,10 +50,13 @@ function startOfGame(){
     console.log(`In these waters lurks the elusive Golden Doubloon. This is the most prized fish.`);
     console.log(`If you catch the Golden Doubloon you will recieve high honors & a high reward!`)
     console.log(``);
+    console.log(`There is a 1 in 10 chance that you will catch the prized Golden Doubloon!`);
+    console.log(`Good luck!`);
+    console.log(``);
     console.log(`==========================================`);
     tuneValuePerPound();
     setTool();
-    return checkTime();
+    return checkWeight();
 }
 
 function tuneValuePerPound(){
@@ -103,7 +106,7 @@ function checkFishValuePerPound(){
         // do something
         let currentDollarPerWeight = fish.value/fish.weight
         if (currentDollarPerWeight > dollarPerPound){
-            console.log(`This is fish has great value per pound. You should keep it.`);
+            console.log(`This fish has great value per pound. You should keep it.`);
             console.log(``);
             return toolToAutoReleaseFish = false;
         } else {
@@ -148,7 +151,7 @@ function checkTime(){
         displayCatchOfTheDay();
         return;
     } else{
-        checkWeight();
+        topOfTheHour();
     }
 }
 
@@ -159,7 +162,7 @@ function checkWeight(){
         displayCatchOfTheDay();
         return;
     } else {
-        return topOfTheHour();
+        return checkTime();
     }
 }
 
