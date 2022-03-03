@@ -206,7 +206,6 @@ function fishValue(){
 
 function randomFish(){
     let rand = Math.floor(Math.random()*10);
-    console.log(rand);
     if (rand === 7){
         console.log(`Congratulations!`)
         console.log(`You are bestowed with High Honors!`);
