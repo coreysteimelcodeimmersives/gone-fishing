@@ -1,4 +1,7 @@
 const prompt = require('prompt-sync')({sigint:true});
+const chalk = require('chalk');
+
+console.log(chalk.blue('Hello World'));
 
 let fishAdj = ['Large', 'Small', 'Great', 'Elusive', 'Peppered', 'Salty', 'Common', 'Electric', 'Spotted', 'Tiny', 'Striped', 'Majestic', 'Heavenly', 'Ghostly', 'Ancient', 'Ol', 'Dainty',  'Royal', 'Shiny', 'Stinky', 'Stout'];
 
