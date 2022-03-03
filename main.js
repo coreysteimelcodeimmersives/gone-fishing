@@ -156,7 +156,7 @@ function checkTime(){
 }
 
 function checkWeight(){
-    if (totalWeight === 10){
+    if (totalWeight >= 10){
         console.log(`Congratulations! You have reached your maximum fish weight allowance.`)
         console.log(`Time to return to shore`)
         displayCatchOfTheDay();
@@ -180,7 +180,7 @@ function topOfTheHour(){
     addTime();
     console.log(``);
     console.log(`==========================================`);
-    return checkTime();
+    return checkWeight();
 }
 
 function fishName(){
