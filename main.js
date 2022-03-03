@@ -137,10 +137,11 @@ function displayCatchOfTheDay(){
         for (let i = 0; i < arrayOfFish.length; i++){
             console.log(`* ${arrayOfFish[i].name}, ${arrayOfFish[i].weight.toFixed(2)} lbs, $${arrayOfFish[i].value.toFixed(2)}`);
         }
-        console.log(``);
-        console.log(`Total weight: ${totalWeight.toFixed(2)} lbs`);
-        console.log(`Total value: $${totalValue.toFixed(2)}`);
-        console.log(``);
+    console.log(``);
+    console.log(`Total weight: ${totalWeight.toFixed(2)} lbs`);
+    console.log(`Total value: $${totalValue.toFixed(2)}`);
+    console.log(``);
+    return;
 }
 
 function checkTime(){
@@ -151,7 +152,7 @@ function checkTime(){
         displayCatchOfTheDay();
         return;
     } else{
-        topOfTheHour();
+        return topOfTheHour();
     }
 }
 
